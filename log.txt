@@ -1,0 +1,27 @@
+2019-12-18T11:02:26,844 Created temporary directory: C:\Users\syt\AppData\Local\Temp\pip-ephem-wheel-cache-tq4gohvu
+2019-12-18T11:02:26,845 Created temporary directory: C:\Users\syt\AppData\Local\Temp\pip-req-tracker-y2ffg5ph
+2019-12-18T11:02:26,846 Created requirements tracker 'C:\\Users\\syt\\AppData\\Local\\Temp\\pip-req-tracker-y2ffg5ph'
+2019-12-18T11:02:26,846 Created temporary directory: C:\Users\syt\AppData\Local\Temp\pip-install-_piyxct1
+2019-12-18T11:02:26,847 Cleaning up...
+2019-12-18T11:02:26,848 Removed build tracker 'C:\\Users\\syt\\AppData\\Local\\Temp\\pip-req-tracker-y2ffg5ph'
+2019-12-18T11:02:26,848 ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'
+2019-12-18T11:02:26,849 Exception information:
+2019-12-18T11:02:26,849 Traceback (most recent call last):
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\download.py", line 124, in get_file_content
+2019-12-18T11:02:26,849     with open(url, 'rb') as f:
+2019-12-18T11:02:26,849 FileNotFoundError: [Errno 2] No such file or directory: 'requirements.txt'
+2019-12-18T11:02:26,849 
+2019-12-18T11:02:26,849 During handling of the above exception, another exception occurred:
+2019-12-18T11:02:26,849 
+2019-12-18T11:02:26,849 Traceback (most recent call last):
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\cli\base_command.py", line 153, in _main
+2019-12-18T11:02:26,849     status = self.run(options, args)
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\commands\install.py", line 362, in run
+2019-12-18T11:02:26,849     wheel_cache
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\cli\req_command.py", line 258, in populate_requirement_set
+2019-12-18T11:02:26,849     use_pep517=options.use_pep517):
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\req\req_file.py", line 108, in parse_requirements
+2019-12-18T11:02:26,849     filename, comes_from=comes_from, session=session
+2019-12-18T11:02:26,849   File "c:\program files (x86)\python3.6\lib\site-packages\pip\_internal\download.py", line 128, in get_file_content
+2019-12-18T11:02:26,849     'Could not open requirements file: %s' % str(exc)
+2019-12-18T11:02:26,849 pip._internal.exceptions.InstallationError: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'

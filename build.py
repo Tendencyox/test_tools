@@ -56,10 +56,11 @@ def build_oc(path, pkm):
 
 def build_php(path, pkm):
     # package manager:composer 
+    os.chdir(path)
     if pkm == "composer":
         cmd = "composer install"
     try:
-        subprocess.run([cmd])
+        subprocess.run(cmd)
     except OSError:
         return 0
     return 1 
@@ -67,13 +68,15 @@ def build_php(path, pkm):
 def build_py(path, pkm):
     # package manager: pip, pipenv
     # only can use python exception to verify success or not
+    os.chdir(path)
     cmd = ""
     if pkm == "pip":
         cmd = "pip install -r requirements.txt --log log.txt"
     else:
         cmd = "pipenv install"
+    # pdb.set_trace()
     try:
-        subprocess.run([cmd])
+        subprocess.run(cmd)
     except OSError:
         return 0
     return 1
@@ -81,13 +84,14 @@ def build_py(path, pkm):
 def build_rb(path, pkm):
     # package manager: RubyGems
     # same as former one
+    os.chdir(path)
     cmd = "ruby -c "
     files = os.listdir(path)
     for file in files:
         if ".rb" in file:
             tmp = cmd + file
             try:
-                subprocess.run([tmp])
+                subprocess.run(tmp)
             except OSError:
                 return 0
     return 1
@@ -95,9 +99,10 @@ def build_rb(path, pkm):
 def build_go(path, pkm):
     # package manager: Modules
     # same as former one
+    os.chdir(path)
     cmd = "go build"
     try:
-        subprocess.run([cmd])
+        subprocess.run(cmd)
     except OSError:
         return 0
     return 1
@@ -106,9 +111,10 @@ def build_conda(path, pkm):
     # package manager: conda
     # language: R or Python
     # same as former one 
+    os.chdir(path)
     cmd = "conda build"
     try:
-        subprocess.run([cmd])
+        subprocess.run(cmd)
     except OSError:
         return 0
     return 1 
@@ -117,6 +123,8 @@ def build_conda(path, pkm):
 
 def build_proj(path, lang, pkm):
     # language : C#,Java,Python,Js,OC,PHP,Ruby,Scala,Go ,etc.
+    os.chdir(path)
+    res = -3
     if lang == "C#":
         res = build_Csharp(path)
     elif lang == "Java":
@@ -127,7 +135,7 @@ def build_proj(path, lang, pkm):
         res = build_oc(path, pkm)
     elif lang == "PHP":
         res = build_php(path, pkm)
-    elif lang == "python":
+    elif lang == "Python":
         res = build_py(path, pkm)
     elif lang == "Ruby":
         res = build_rb(path, pkm)
@@ -138,8 +146,11 @@ def build_proj(path, lang, pkm):
     return res
 
 if __name__ == "__main__":
-    floder_path = "C:/Users/syt/Desktop/repo/example-maven-travis-master"
-    language = "Java"
-    package_manager = "Maven"
+    # floder_path = "C:/Users/syt/Desktop/repo/example-maven-travis-master"
+    # language = "Java"
+    # package_manager = "Maven"
+    floder_path = "C:/Users/syt/Desktop/repo/pip-update-requirements"
+    language = "Python"
+    package_manager = "pip"
     res = build_proj(floder_path, language, package_manager)
     print(res)
